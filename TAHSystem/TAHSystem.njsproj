@@ -32,9 +32,24 @@
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
-    <Content Include="src\components\Home.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\assets\bg.jpg" />
+    <Content Include="src\assets\home.gif" />
+    <Content Include="src\components\Footer.vue" />
+    <Content Include="src\components\HeadBar.vue" />
+    <Content Include="src\components\Home.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\Content.vue" />
+    <Content Include="src\components\Login.vue" />
+    <Content Include="src\components\Main.vue" />
+    <Content Include="src\components\Pagination.vue" />
+    <Content Include="src\components\RealTimeData.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\Register.vue" />
+    <Content Include="src\routers\router.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
@@ -42,18 +57,12 @@
     <Folder Include="src\" />
     <Folder Include="src\assets\" />
     <Folder Include="src\components\" />
+    <Folder Include="src\css\" />
+    <Folder Include="src\routers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="babel.config.js" />
-    <Content Include="src\components\LeftMenu.vue">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="src\components\MainContainer.vue">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="src\components\Nav.vue">
-      <SubType>Code</SubType>
-    </Content>
+    <Content Include="src\css\normalize.css" />
     <Content Include="src\main.js" />
   </ItemGroup>
   <PropertyGroup>

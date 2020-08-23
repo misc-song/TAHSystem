@@ -1,24 +1,17 @@
 <template>
     <div class="home">
-        <LeftMenu></LeftMenu>
-        <MainContainer></MainContainer>
+        <!--<h1>{{ msg }}</h1>
+        <el-link type="info">信息链接</el-link>
+        <p>Welcome to your new single-page application, built with <a href="https://vuejs.org" target="_blank">Vue.js</a>.</p>-->
     </div>
 </template>
 
 <script>
-    import LeftMenu from "./LeftMenu.vue";
-    import MainContainer from "./MainContainer.vue";
-
     export default {
         name: 'Home',
         props: {
-            //  msg: String
-        },
-        components: {
-            LeftMenu,
-            MainContainer,
-            //Compare
-        },
+            msg: String
+        }
     };
 </script>
 
