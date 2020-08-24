@@ -49,6 +49,15 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\components\Register.vue" />
+    <Content Include="src\components\SysConfig.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\SysLog.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\SysStatue.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\routers\router.js" />
   </ItemGroup>
   <ItemGroup>

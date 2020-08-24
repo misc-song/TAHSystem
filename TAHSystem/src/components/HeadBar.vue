@@ -15,8 +15,8 @@
                 <div class="right_head ">
                     <!--<span><a class="head_link" href="#">登录</a></span>
                     <span><a class="head_link" href="#">注册</a></span>-->
-                    <span><router-link to="/Login">login</router-link></span>
-                    <span><router-link to="/Register">register</router-link></span>
+                    <!--<span><router-link to="/Login">login</router-link></span>-->
+                    <!--<span><router-link to="/Register">register</router-link></span>-->
                 </div>
             </el-col>
         </el-row>
