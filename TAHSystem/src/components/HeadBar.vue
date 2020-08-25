@@ -1,7 +1,7 @@
 <template>
     <div class="HeadBar">
         <el-row class="head_row">
-            <el-col :span="18" :offset="3">
+            <el-col >
                 <div class="left_head ">
                     <router-link to="/Main">
                         <div class="logo">

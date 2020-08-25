@@ -1,6 +1,5 @@
 <template>
     <div>
-        实时数据
         <ve-line :data="chartData"></ve-line>
     </div>
 </template>
@@ -9,23 +8,57 @@
     export default {
         name: 'RealTimeData',
         data() {
+
             this.chartSettings = {
-                metrics: ['温度', '湿度'],
+                metrics: ['温度1', '温度2', "温度3"],
                 dimension: ['时间']
             }
             return {
                 chartData: {
-                    columns: ['时间', '温度', '湿度'],
+                    columns: ['时间', '温度1', '温度2', '温度3'],
                     rows: [
-                        { '时间': '10:10', '温度': 13.3, '湿度': 82 },
-                        { '时间': '10:11', '温度': 35.0, '湿度': 81 },
-                        { '时间': '10:12', '温度': 29.3, '湿度': 88 },
-                        { '时间': '10:13', '温度': 17.3, '湿度': 89 },
-                        { '时间': '10:14', '温度': 37.2, '湿度': 92 },
-                        { '时间': '10:15', '温度': 45.3, '湿度': 90 }
+                        { '时间': '02:10:10', '温度1': 13.3, '温度2': 82, '温度3': 62 },
+                        { '时间': '02:10:11', '温度1': 35.0, '温度2': 81, '温度3': 61 },
+                        { '时间': '02:10:12', '温度1': 29.3, '温度2': 88, '温度3': 68 },
+                        { '时间': '02:10:13', '温度1': 17.3, '温度2': 89, '温度3': 69 },
+                        { '时间': '02:10:14', '温度1': 37.2, '温度2': 92, '温度3': 62 },
+                        { '时间': '02:10:15', '温度1': 45.3, '温度2': 90, '温度3': 60 }
                     ]
-                }
+                },
+                websock: null,
             }
+        },
+        methonds: {
+            initWebSocket() { //初始化weosocket
+                const wsuri = "ws://127.0.0.1:8080";
+                this.websock = new WebSocket(wsuri);
+                this.websock.onmessage = this.websocketonmessage;
+                this.websock.onopen = this.websocketonopen;
+                this.websock.onerror = this.websocketonerror;
+                this.websock.onclose = this.websocketclose;
+            },
+            websocketonopen() { //连接建立之后执行send方法发送数据
+                let actions = { "test": "12345" };
+                this.websocketsend(JSON.stringify(actions));
+            },
+            websocketonerror() {//连接建立失败重连
+                this.initWebSocket();
+            },
+            websocketonmessage(e) { //数据接收
+                const redata = JSON.parse(e.data);
+            },
+            websocketsend(Data) {//数据发送
+                this.websock.send(Data);
+            },
+            websocketclose(e) {  //关闭
+                console.log('断开连接', e);
+            },
+        },
+        created() {
+            this.initWebSocket();
+        },
+        destroyed() {
+            this.websock.close() //离开路由之后断开websocket连接
         },
         mounted() {
 

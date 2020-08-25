@@ -1,23 +1,27 @@
 ﻿<template>
-    <div>
-        <el-tabs tab-position="left" class="tabs">
-            <el-tab-pane label="实时数据">
-                <RealTimeData></RealTimeData>
-            </el-tab-pane>
-            <el-tab-pane label="系统配置">
-                <SysConfig></SysConfig>
-            </el-tab-pane>
-            <el-tab-pane label="系统日志">
-                <SysLog></SysLog>
-            </el-tab-pane>
-            <el-tab-pane label="系统状态">
-                <SysStatue></SysStatue>
-            </el-tab-pane>
-            <el-tab-pane label="退出登录">
-                退出登录
-            </el-tab-pane>
-        </el-tabs>
-    </div>
+    <el-row>
+        <el-col :span="24"  class="naviContent">
+            <div>
+                <el-tabs tab-position="top" class="tabs">
+                    <el-tab-pane label="实时数据">
+                        <RealTimeData></RealTimeData>
+                    </el-tab-pane>
+                    <el-tab-pane label="系统配置">
+                        <SysConfig></SysConfig>
+                    </el-tab-pane>
+                    <el-tab-pane label="系统日志">
+                        <SysLog></SysLog>
+                    </el-tab-pane>
+                    <el-tab-pane label="系统状态">
+                        <SysStatue></SysStatue>
+                    </el-tab-pane>
+                    <el-tab-pane label="退出登录">
+                        退出登录
+                    </el-tab-pane>
+                </el-tabs>
+            </div>
+        </el-col>
+    </el-row>
 </template>
 
 <script>
@@ -57,11 +61,12 @@
     }
 
     .is-active {
-        border: 1px solid #409EFF;
+/*        border: 1px solid #409EFF;*/
     }
 
     .tabs {
-        height: 400px;
-        width: 100%;
+        position:fixed;
+        height: 100%;
+        width:100%;
     }
 </style>

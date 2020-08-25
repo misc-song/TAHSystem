@@ -1,12 +1,10 @@
 ﻿<template>
     <div class="Main">
-        <el-row>
-            <el-col :span="18" :offset="3" class="naviContent">
-                <!-- 通过v-if 进行条件渲染 如果不使用条件判断则子组件在钩子函数中的无法获取数据  -->
-                <!--<LeftContent v-if="Object.keys(result).length" v-bind:result="result" />-->
-                <Content @func="LoadData"></Content>
-            </el-col>
-        </el-row>
+
+        <!-- 通过v-if 进行条件渲染 如果不使用条件判断则子组件在钩子函数中的无法获取数据  -->
+        <!--<LeftContent v-if="Object.keys(result).length" v-bind:result="result" />-->
+        <Content @func="LoadData"></Content>
+
     </div>
 </template>
 
@@ -63,13 +61,13 @@
         margin-top: 12px;
     }
 
-    .Main_Content {
+    /*.Main_Content {
         margin: 0 auto;
         margin-top: 20px;
         width: 1200px;
-        min-height: 800px;
-        /*border:1px red solid;*/
-    }
+        min-height: 800px;*/
+    /*border:1px red solid;*/
+    /*}*/
 
     .Main_left {
         width: 400px;
