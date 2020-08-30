@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ve-line :data="chartData"></ve-line>
+        <ve-line :data="chartData"  :extend="chartExtend"></ve-line>
     </div>
 </template>
 
@@ -8,10 +8,15 @@
     export default {
         name: 'RealTimeData',
         data() {
-
+            this.chartExtend = {
+                 series: {
+                    connectNulls: true   //自动连接间断点数据
+                },
+            },
             this.chartSettings = {
                 metrics: ['温度1', '温度2', "温度3"],
-                dimension: ['时间']
+                dimension: ['时间'],
+                connectNulls: true,
             }
             return {
                 chartData: {
@@ -19,18 +24,18 @@
                     rows: [
                         { '时间': '02:10:10', '温度1': 13.3, '温度2': 82, '温度3': 62 },
                         { '时间': '02:10:11', '温度1': 35.0, '温度2': 81, '温度3': 61 },
-                        { '时间': '02:10:12', '温度1': 29.3, '温度2': 88, '温度3': 68 },
+                        { '时间': '02:10:12', '温度1': 29.3, '温度2': 88 },
                         { '时间': '02:10:13', '温度1': 17.3, '温度2': 89, '温度3': 69 },
                         { '时间': '02:10:14', '温度1': 37.2, '温度2': 92, '温度3': 62 },
-                        { '时间': '02:10:15', '温度1': 45.3, '温度2': 90, '温度3': 60 }
+                        { '时间': '', '温度1': 45.3, '温度2': 90, '温度3': 60 }
                     ]
                 },
                 websock: null,
             }
         },
-        methonds: {
+        methods: {
             initWebSocket() { //初始化weosocket
-                const wsuri = "ws://127.0.0.1:8080";
+                const wsuri = "ws://127.0.0.1:30000";
                 this.websock = new WebSocket(wsuri);
                 this.websock.onmessage = this.websocketonmessage;
                 this.websock.onopen = this.websocketonopen;
@@ -45,7 +50,8 @@
                 this.initWebSocket();
             },
             websocketonmessage(e) { //数据接收
-                const redata = JSON.parse(e.data);
+               // const redata = JSON.parse(e.data);
+                console.log(e);
             },
             websocketsend(Data) {//数据发送
                 this.websock.send(Data);
@@ -53,6 +59,7 @@
             websocketclose(e) {  //关闭
                 console.log('断开连接', e);
             },
+
         },
         created() {
             this.initWebSocket();

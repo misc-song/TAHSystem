@@ -3,7 +3,7 @@
         <el-col :span="24"  class="naviContent">
             <div>
                 <el-tabs tab-position="top" class="tabs">
-                    <el-tab-pane label="实时数据">
+                    <el-tab-pane label="实时数据" lazy>
                         <RealTimeData></RealTimeData>
                     </el-tab-pane>
                     <el-tab-pane label="系统配置">

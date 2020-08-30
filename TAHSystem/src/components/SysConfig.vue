@@ -21,23 +21,23 @@
                             </el-select>
                         </el-form-item>
                         <el-form-item label="数据位">
-                            <el-select v-model="dataBit" placeholder="数据位">
-                                <el-option label="5" value="5"></el-option>
-                                <el-option label="6" value="6"></el-option>
-                                <el-option label="7" value="7"></el-option>
+                            <el-select v-model="dataBits" placeholder="数据位">
                                 <el-option label="8" value="8"></el-option>
+                                <el-option label="7" value="7"></el-option>
+                                <el-option label="6" value="6"></el-option>
+                                <el-option label="5" value="5"></el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="校验方式">
                             <el-select v-model="parity" placeholder="校验方式">
-                                <el-option label="None" value="None"></el-option>
-                                <el-option label="Odd" value="Odd"></el-option>
-                                <el-option label="Even" value="Even"></el-option>
+                                <el-option label="None" value="0"></el-option>
+                                <el-option label="Odd" value="1"></el-option>
+                                <el-option label="Even" value="2"></el-option>
                             </el-select>
                         </el-form-item>
 
                         <el-form-item label="停止位">
-                            <el-select v-model="stopBit" placeholder="停止位">
+                            <el-select v-model="stopBits" placeholder="停止位">
                                 <el-option label="1" value="1"></el-option>
                                 <el-option label="2" value="2"></el-option>
                             </el-select>
@@ -50,15 +50,12 @@
                             <el-input v-model="writeTimeout" class="elinput"></el-input>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" >提交</el-button>
+                            <el-button type="primary" @click="sendToServer">提交</el-button>
                         </el-form-item>
                     </el-form>
                 </div>
             </el-col>
         </el-row>
-
-
-
     </div>
 </template>
 
@@ -70,11 +67,11 @@
                 portList: {},
                 postName: "",
                 baudRate: "",
-                dataBit: "",
+                dataBits: "",
                 parity: "",
-                stopBit: "",
+                stopBits: "",
                 readTimeout: "",
-                writeTimeout:""
+                writeTimeout: ""
             }
         },
         methods: {              // 方法
@@ -94,6 +91,29 @@
             getData() {
                 console.log(this.result.total);
             },
+            sendToServer() {
+                console.log("sending....");
+                let data = new FormData();
+                console.log("portName:" + this.postName + "stopBits:" + this.stopBits)
+                data.append("portName", this.postName);
+                data.append("stopBits", this.stopBits);
+                data.append("baudRate", this.baudRate);
+                data.append("dataBits", this.dataBits);
+                data.append("parity", this.parity);
+                data.append("readTimeout", this.readTimeout);
+                data.append("writeTimeout", this.writeTimeout);
+
+                //axios 发送请求
+                this.axios
+                    .post('http://localhost:5000/api/Configure/SetSerialPort', data)
+                    .then((response) => {
+                        console.log(response.data.serverData);
+                        this.portList = response.data.serverData;
+
+                    }).catch((response) => {
+                        console.log(response);
+                    })
+            }
         },
         mounted: function () {
             this.GetPortName();
