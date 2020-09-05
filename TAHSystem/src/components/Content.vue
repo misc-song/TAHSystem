@@ -1,10 +1,10 @@
 ﻿<template>
     <el-row>
-        <el-col :span="24"  class="naviContent">
+        <el-col :span="24" class="naviContent">
             <div>
                 <el-tabs tab-position="top" class="tabs">
-                    <el-tab-pane label="实时数据" lazy>
-                        <RealTimeData></RealTimeData>
+                    <el-tab-pane sstyle="overflow-y:auto;" label="实时数据" lazy>
+                        <RealTimeData ></RealTimeData>
                     </el-tab-pane>
                     <el-tab-pane label="系统配置">
                         <SysConfig></SysConfig>
@@ -61,12 +61,14 @@
     }
 
     .is-active {
-/*        border: 1px solid #409EFF;*/
+        /*        border: 1px solid #409EFF;*/
     }
 
     .tabs {
-        position:fixed;
+     /*   position: fixed;
         height: 100%;
-        width:100%;
+        width: 100%;*/
     }
+
+  
 </style>
