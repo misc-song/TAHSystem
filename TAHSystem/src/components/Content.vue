@@ -4,7 +4,10 @@
             <div>
                 <el-tabs tab-position="top" class="tabs">
                     <el-tab-pane sstyle="overflow-y:auto;" label="实时数据" lazy>
-                        <RealTimeData ></RealTimeData>
+                        <RealTimeData></RealTimeData>
+                    </el-tab-pane>
+                    <el-tab-pane label="历史数据" lazy>
+                        <HistoryData></HistoryData>
                     </el-tab-pane>
                     <el-tab-pane label="系统配置">
                         <SysConfig></SysConfig>
@@ -29,6 +32,7 @@
     import SysConfig from './SysConfig.vue';
     import SysLog from './SysLog.vue';
     import SysStatue from './SysStatue.vue';
+    import HistoryData from './HistoryData.vue'
     export default {
         name: 'Content',
         data() {
@@ -46,6 +50,7 @@
             SysConfig,
             SysLog,
             SysStatue,
+            HistoryData,
         },
         methods: {
             clickMe() {

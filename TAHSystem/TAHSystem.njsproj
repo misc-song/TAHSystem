@@ -36,6 +36,7 @@
     <Content Include="README.md" />
     <Content Include="src\assets\bg.jpg" />
     <Content Include="src\assets\home.gif" />
+    <Content Include="src\assets\icon.png" />
     <Content Include="src\components\Footer.vue" />
     <Content Include="src\components\HeadBar.vue" />
     <Content Include="src\components\Home.vue">
@@ -45,6 +46,7 @@
     <Content Include="src\components\Login.vue" />
     <Content Include="src\components\Main.vue" />
     <Content Include="src\components\Pagination.vue" />
+    <Content Include="src\components\HistoryData.vue" />
     <Content Include="src\components\RealTimeData.vue">
       <SubType>Code</SubType>
     </Content>

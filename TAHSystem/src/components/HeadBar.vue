@@ -5,10 +5,10 @@
                 <div class="left_head ">
                     <router-link to="/Main">
                         <div class="logo">
-                            <img src="#" alt="Alternate Text" />
+                            <img src="../assets/icon.png"  alt="Alternate Text" class="icon"/>
                         </div>
                         <div class="sitename">
-                            TestPage
+                            TEMP&HUMID System
                         </div>
                     </router-link>
                 </div>
@@ -38,11 +38,15 @@
     .head_row {
         height: 60px;
     }
-
+    .icon {
+        width: 30px;
+        height: 30px;
+        margin-right:10px;
+    }
     .left_head {
         margin-top: 18px;
         float: left;
-        width: 237px;
+        /*width: 237px;*/
     }
 
     .right_head {
@@ -59,13 +63,14 @@
     }
 
     .sitename {
-        width: 82px;
+        width: 230px;
         line-height: 24px;
         color: #0cb1db;
-        font-size: 22px;
+        font-size: 20px;
         float: right;
         padding-left: 13px;
         border-left: 1px solid #fff;
+        /*border:1px red solid;*/
         cursor: pointer;
     }
 
