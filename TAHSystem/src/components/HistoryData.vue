@@ -107,11 +107,11 @@
                 dimension: ['时间'],
             }
             this.chartSettings4 = {
-                metrics: humiB,
+                metrics: illuA,
                 dimension: ['时间'],
             }
             this.chartSettings5 = {
-                metrics: humiB,
+                metrics: illuB,
                 dimension: ['时间'],
             }
 
@@ -133,12 +133,12 @@
                     rows: []
                 },
                 chartData4: {
-                    columns: humiB,
+                    columns: illuA,
                     rows: []
                 },
 
                 chartData5: {
-                    columns: humiB,
+                    columns: illuB,
                     rows: []
                 },
 
@@ -176,6 +176,9 @@
                 seriesData1: [],
                 seriesData2: [],
                 seriesData3: [],
+                seriesData4: [],
+                seriesData5: [],
+
                 date: null,
                 result: null,
             }
@@ -777,14 +780,13 @@
                 //    console.log(this.seriesData2);
                 //    console.log(this.seriesData3);
                 //    console.log(this.seriesData4);
-
-                this.chartData.rows = this.seriesData;
-                //[{ '时间': '2020-09-20 13:31:46', '温度A1': 1 },
+                                //[{ '时间': '2020-09-20 13:31:46', '温度A1': 1 },
                 //{ '时间': '2020-09-20 13:31:47', '温度A1': 2 },
                 //{ '时间': '2020-09-20 13:31:48', '温度A1': 3 },
                 //{ '时间': '2020-09-20 13:31:48', '温度A2': 3 },
                 //{ '时间': '2020-09-20 13:31:48', '温度A3': 3 },
                 //{ '时间': '2020-09-20 13:31:48', '温度A4': 3 },];
+                this.chartData.rows = this.seriesData;
                 this.chartData1.rows = this.seriesData1;
                 this.chartData2.rows = this.seriesData2;
                 this.chartData3.rows = this.seriesData3;
