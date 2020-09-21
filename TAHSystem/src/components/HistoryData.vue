@@ -28,6 +28,9 @@
         <ve-line :data="chartData1" :extend="chartExtend1" :settings="chartSettings1" :data-zoom="dataZoom" height="800px" :toolbox="toolbox"></ve-line>
         <ve-line :data="chartData2" :extend="chartExtend2" :settings="chartSettings2" :data-zoom="dataZoom" height="800px" :toolbox="toolbox"></ve-line>
         <ve-line :data="chartData3" :extend="chartExtend3" :settings="chartSettings3" :data-zoom="dataZoom" height="800px" :toolbox="toolbox"></ve-line>
+        <ve-line :data="chartData4" :extend="chartExtend4" :settings="chartSettings4" :data-zoom="dataZoom" height="800px" :toolbox="toolbox"></ve-line>
+        <ve-line :data="chartData5" :extend="chartExtend5" :settings="chartSettings5" :data-zoom="dataZoom" height="800px" :toolbox="toolbox"></ve-line>
+
     </div>
 </template>
 
@@ -39,6 +42,8 @@
             const tempB = ['温度B1', '温度B2', '温度B3', '温度B4', '温度B5', '温度B6', '温度B7', '温度B8', '温度B9', '温度B10', '温度B11', '温度B12', '温度B13', '温度B14', '温度B15', '温度B16', '温度B17', '温度B18', '温度B19', '温度B20', '温度B21', '温度B22', '温度B23']
             const humiA = ['湿度A1', '湿度A2', '湿度A3', '湿度A4', '湿度A5', '湿度A6', '湿度A7', '湿度A8', '湿度A9', '湿度A10', '湿度A11', '湿度A12', '湿度A13', '湿度A14', '湿度A15', '湿度A16', '湿度A17', '湿度A18', '湿度A19', '湿度A20', '湿度A21', '湿度A22', '湿度A23']
             const humiB = ['湿度B1', '湿度B2', '湿度B3', '湿度B4', '湿度B5', '湿度B6', '湿度B7', '湿度B8', '湿度B9', '湿度B10', '湿度B11', '湿度B12', '湿度B13', '湿度B14', '湿度B15', '湿度B16', '湿度B17', '湿度B18', '湿度B19', '湿度B20', '湿度B21', '湿度B22', '湿度B23']
+            const illuA = ['照度A1', '照度A2', '照度A3', '照度A4', '照度A5', '照度A6', '照度A7', '照度A8', '照度A9', '照度A10', '照度A11', '照度A12', '照度A13', '照度A14', '照度A15', '照度A16', '照度A17', '照度A18', '照度A19', '照度A20', '照度A21', '照度A22', '照度A23']
+            const illuB = ['照度B1', '照度B2', '照度B3', '照度B4', '照度B5', '照度B6', '照度B7', '照度B8', '照度B9', '照度B10', '照度B11', '照度B12', '照度B13', '照度B14', '照度B15', '照度B16', '照度B17', '照度B18', '照度B19', '照度B20', '照度B21', '照度B22', '照度B23']
             this.chartExtend = {
                 series: {
                     connectNulls: true   //自动连接间断点数据
@@ -55,6 +60,16 @@
                 }
             }
             this.chartExtend3 = {
+                series: {
+                    connectNulls: true   //自动连接间断点数据
+                }
+            }
+            this.chartExtend4 = {
+                series: {
+                    connectNulls: true   //自动连接间断点数据
+                }
+            }
+            this.chartExtend5 = {
                 series: {
                     connectNulls: true   //自动连接间断点数据
                 }
@@ -91,6 +106,14 @@
                 metrics: humiB,
                 dimension: ['时间'],
             }
+            this.chartSettings4 = {
+                metrics: humiB,
+                dimension: ['时间'],
+            }
+            this.chartSettings5 = {
+                metrics: humiB,
+                dimension: ['时间'],
+            }
 
             return {
                 chartData: {
@@ -109,6 +132,16 @@
                     columns: humiB,
                     rows: []
                 },
+                chartData4: {
+                    columns: humiB,
+                    rows: []
+                },
+
+                chartData5: {
+                    columns: humiB,
+                    rows: []
+                },
+
 
                 options: [
                     { value: '0', label: '0' },
@@ -163,12 +196,6 @@
                     }).catch((response) => {
                         console.log(response);
                     })
-
-
-
-
-
-
                 //console.log("get data");
             },
             IteratData(redata) {
@@ -177,6 +204,10 @@
                 this.seriesData1 = [];
                 this.seriesData2 = [];
                 this.seriesData3 = [];
+                this.seriesData4 = [];
+                this.seriesData5 = [];
+
+
                 for (var i = 0; i < redata.length; i++) {
                     switch (redata[i].name) {
                         //Temp_A
@@ -552,6 +583,192 @@
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '湿度B23': redata[i].value };
                             this.seriesData3.push(data);
                             break;
+                        //照度
+                        case "\rLight_A0":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A1': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A1":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A2': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A2":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A3': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A3":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A4': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A4":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A5': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A5":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A6': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A6":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A7': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A7":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A8': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A8":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A9': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A9":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A10': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A10":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A11': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A11":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A12': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A12":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A13': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A13":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A14': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A14":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A15': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A15":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A16': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A16":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A17': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A17":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A18': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A18":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A19': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A19":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A20': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A20":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A21': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A21":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A22': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        case "\rLight_A22":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A23': redata[i].value };
+                            this.seriesData4.push(data);
+                            break;
+                        //Light_B
+                        case "\rLight_B0":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B1': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B1":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B2': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B2":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B3': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B3":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B4': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B4":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B5': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B5":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B6': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B6":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B7': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B7":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B8': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B8":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B9': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B9":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B10': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B10":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B11': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B11":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B12': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B12":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B13': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B13":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B14': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B14":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B15': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B15":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B16': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B16":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B17': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B17":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B18': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B18":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B19': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B19":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B20': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B20":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B21': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B21":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B22': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
+                        case "\rLight_B22":
+                            var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B23': redata[i].value };
+                            this.seriesData5.push(data);
+                            break;
                         default:
                             break;
                     }
@@ -571,6 +788,9 @@
                 this.chartData1.rows = this.seriesData1;
                 this.chartData2.rows = this.seriesData2;
                 this.chartData3.rows = this.seriesData3;
+                this.chartData4.rows = this.seriesData4;
+                this.chartData5.rows = this.seriesData5;
+
 
             },
             //格式化时间
