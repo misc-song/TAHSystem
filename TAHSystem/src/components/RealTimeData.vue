@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import { Select } from "element-ui";
+   // import { Select } from "element-ui";
 
     export default {
         name: 'HistoryData',
@@ -721,6 +721,12 @@
                     //console.log(this.seriesData3);
                     //console.log(this.seriesData4);
                     //console.log(this.seriesData5);
+                    this.keepArrayLength(this.seriesData);
+                    this.keepArrayLength(this.seriesData1);
+                    this.keepArrayLength(this.seriesData2);
+                    this.keepArrayLength(this.seriesData3);
+                    this.keepArrayLength(this.seriesData4);
+                    this.keepArrayLength(this.seriesData5);
 
                     this.chartData.rows = this.seriesData;
                     this.chartData1.rows = this.seriesData1;
@@ -750,7 +756,16 @@
                 // console.log(r);
                 return r;
             },
-
+            keepArrayLength(arr) {
+                var outlen = arr.length - 100;
+                if (outlen > 0) {
+                    while (outlen) {
+                        arr.shift();
+                        --outlen;
+                    }
+                }
+                return;
+            }
 
 
         },
@@ -761,26 +776,12 @@
             //    { '时间': '02:10:13', '温度1': 17.3, '温度2': 89, '温度3': 69 },
             //    { '时间': '02:10:14', '温度1': 37.2, '温度2': 92, '温度3': 62 },
             //    { '时间': '', '温度1': 45.3, '温度2': 90, '温度3': 60 }]
-
-
-
-
-
             //:data-zoom="dataZoom"
             //:data-zoom="dataZoom"
             //:data-zoom="dataZoom"
             //:data-zoom="dataZoom"
             //:data-zoom="dataZoom"
             //:data-zoom="dataZoom"
-
-
-
-
-
-
-
-
-
         },
         destroyed() {
             this.websock.close() //离开路由之后断开websocket连接

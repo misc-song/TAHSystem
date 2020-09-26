@@ -1,15 +1,11 @@
 ﻿<template>
     <div class="loginPage">
         <div class="form">
-
-
             <div class="login">
                 <p><input type="text" name="name" value="" placeholder="用户名" /></p>
                 <p><input type="password" name="name" value="" placeholder="密码" /></p>
                 <p><input type="text" name="name" placeholder="验证码" /></p>
                 <div class="submit">
-
-
                     <p><input class="submit_btn" type="button" name="name" value="登    录" /></p>
                 </div>
             </div>

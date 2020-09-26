@@ -587,188 +587,188 @@
                             this.seriesData3.push(data);
                             break;
                         //照度
-                        case "\rLight_A0":
+                        case "\rlight_A0":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A1': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A1":
+                        case "\rlight_A1":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A2': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A2":
+                        case "\rlight_A2":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A3': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A3":
+                        case "\rlight_A3":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A4': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A4":
+                        case "\rlight_A4":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A5': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A5":
+                        case "\rlight_A5":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A6': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A6":
+                        case "\rlight_A6":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A7': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A7":
+                        case "\rlight_A7":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A8': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A8":
+                        case "\rlight_A8":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A9': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A9":
+                        case "\rlight_A9":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A10': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A10":
+                        case "\rlight_A10":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A11': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A11":
+                        case "\rlight_A11":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A12': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A12":
+                        case "\rlight_A12":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A13': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A13":
+                        case "\rlight_A13":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A14': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A14":
+                        case "\rlight_A14":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A15': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A15":
+                        case "\rlight_A15":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A16': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A16":
+                        case "\rlight_A16":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A17': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A17":
+                        case "\rlight_A17":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A18': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A18":
+                        case "\rlight_A18":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A19': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A19":
+                        case "\rlight_A19":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A20': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A20":
+                        case "\rlight_A20":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A21': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A21":
+                        case "\rlight_A21":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A22': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        case "\rLight_A22":
+                        case "\rlight_A22":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度A23': redata[i].value };
                             this.seriesData4.push(data);
                             break;
-                        //Light_B
-                        case "\rLight_B0":
+                        //light_B
+                        case "\rlight_B0":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B1': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B1":
+                        case "\rlight_B1":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B2': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B2":
+                        case "\rlight_B2":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B3': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B3":
+                        case "\rlight_B3":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B4': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B4":
+                        case "\rlight_B4":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B5': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B5":
+                        case "\rlight_B5":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B6': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B6":
+                        case "\rlight_B6":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B7': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B7":
+                        case "\rlight_B7":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B8': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B8":
+                        case "\rlight_B8":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B9': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B9":
+                        case "\rlight_B9":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B10': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B10":
+                        case "\rlight_B10":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B11': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B11":
+                        case "\rlight_B11":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B12': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B12":
+                        case "\rlight_B12":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B13': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B13":
+                        case "\rlight_B13":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B14': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B14":
+                        case "\rlight_B14":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B15': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B15":
+                        case "\rlight_B15":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B16': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B16":
+                        case "\rlight_B16":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B17': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B17":
+                        case "\rlight_B17":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B18': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B18":
+                        case "\rlight_B18":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B19': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B19":
+                        case "\rlight_B19":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B20': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B20":
+                        case "\rlight_B20":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B21': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B21":
+                        case "\rlight_B21":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B22': redata[i].value };
                             this.seriesData5.push(data);
                             break;
-                        case "\rLight_B22":
+                        case "\rlight_B22":
                             var data = { '时间': this.dateFormat(redata[i].addDateTime), '照度B23': redata[i].value };
                             this.seriesData5.push(data);
                             break;

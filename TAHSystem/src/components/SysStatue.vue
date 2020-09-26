@@ -6,6 +6,7 @@
         <p><span>COM端口：</span><span>{{comName}}</span></p>
         <p><span>进程id：</span><span>{{processId}}</span></p>
         <el-button type="primary" @click="CloseProcess">关闭服务</el-button>
+        <el-button type="primary" @click="GetRunningProcess">刷新状态</el-button>
     </div>
 </template>
 
@@ -51,7 +52,7 @@
                     .get('http://localhost:5000/api/Configure/KillProcess?id=' + this.id)
                     .then((response) => {
                         console.log(response.data.serverData);
-                   
+
                         var ok = response.data.data;
                         if (ok) {
                             alert("服务已经关闭");
@@ -70,8 +71,7 @@
         },
         created: function () {
             this.GetRunningProcess();
-            console.log("start ");
-
+            // console.log("start ");
         }
     }
 </script>
