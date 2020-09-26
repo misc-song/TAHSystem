@@ -757,7 +757,7 @@
                 return r;
             },
             keepArrayLength(arr) {
-                var outlen = arr.length - 100;
+                var outlen = arr.length - 600;
                 if (outlen > 0) {
                     while (outlen) {
                         arr.shift();

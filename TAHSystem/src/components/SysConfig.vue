@@ -44,18 +44,29 @@
                         </el-form-item>
 
                         <el-form-item label="读取超时">
-                            <el-input v-model="readTimeout" class="elinput"></el-input>
+                            <el-input v-model="readTimeout" class="elinput" ></el-input>
                         </el-form-item>
                         <el-form-item label="写入超时">
-                            <el-input v-model="writeTimeout" class="elinput"></el-input>
+                            <el-input v-model="writeTimeout" class="elinput" ></el-input>
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="sendToServer">提交</el-button>
+                            <!--<el-button type="primary" @click="FlushCache">刷新缓存</el-button>-->
+                            <el-popconfirm confirmButtonText='确定' class="confirm"
+                                           cancelButtonText='不用了'
+                                           icon="el-icon-info"
+                                           iconColor="red"
+                                           title="确定刷新缓存？"
+                                           @onConfirm="FlushCache">
+                                <el-button slot="reference">刷新缓存</el-button>
+                            </el-popconfirm>
+                            <p>仅当服务无法启动是请刷新缓存!</p>
                         </el-form-item>
                     </el-form>
                 </div>
             </el-col>
         </el-row>
+
     </div>
 </template>
 
@@ -70,13 +81,12 @@
                 dataBits: "",
                 parity: "",
                 stopBits: "",
-                readTimeout: "",
-                writeTimeout: ""
+                readTimeout: 500,
+                writeTimeout: 500
             }
         },
-        methods: {              // 方法
-            //绑定ElementUI current-change 事件 当分页页码改变的时候触发
-            GetPortName(val) {
+        methods: {
+            GetPortName() {
                 this.axios
                     .get('http://localhost:5000/api/Configure/GetAllSerialPortName')
                     .then((response) => {
@@ -86,15 +96,25 @@
                     }).catch((response) => {
                         console.log(response);
                     })
-
             },
-            getData() {
-                console.log(this.result.total);
+            FlushCache() {
+                this.axios
+                    .get('http://localhost:5000/api/Configure/ClearCache')
+                    .then((response) => {
+                        if (response.data.returnCode == 200) {
+                            alert("刷新成功");
+                        }
+                    }).catch((response) => {
+                        console.log(response);
+                    })
             },
             sendToServer() {
-                console.log("sending....");
+                //console.log("sending....");
+                if (this.postName == "" || this.stopBits == "" || this.baudRate == "" || this.dataBits=="" || this.parity=="" || this.readTimeout=="" || this.writeTimeout=="") {
+                    alert("数据不可为空");
+                    return;
+                }
                 let data = new FormData();
-                console.log("portName:" + this.postName + "stopBits:" + this.stopBits)
                 data.append("portName", this.postName);
                 data.append("stopBits", this.stopBits);
                 data.append("baudRate", this.baudRate);
@@ -102,14 +122,17 @@
                 data.append("parity", this.parity);
                 data.append("readTimeout", this.readTimeout);
                 data.append("writeTimeout", this.writeTimeout);
-
                 //axios 发送请求
                 this.axios
                     .post('http://localhost:5000/api/Configure/SetSerialPort', data)
                     .then((response) => {
                         console.log(response.data.serverData);
-                        this.portList = response.data.serverData;
-
+                        if (response.data.returnCode == 200) {
+                            alert(response.data.sInfo);
+                        }
+                        else {
+                            alert(response.data.sInfo);
+                        }
                     }).catch((response) => {
                         console.log(response);
                     })
@@ -125,5 +148,9 @@
 <style scoped>
     .elinput {
         width: 200px;
+    }
+
+    .confirm {
+        margin-left: 10px;
     }
 </style>

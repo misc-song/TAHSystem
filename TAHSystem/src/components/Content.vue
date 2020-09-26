@@ -12,15 +12,15 @@
                     <el-tab-pane label="系统配置">
                         <SysConfig></SysConfig>
                     </el-tab-pane>
-                    <el-tab-pane label="系统日志">
+                    <!--<el-tab-pane label="系统日志">
                         <SysLog></SysLog>
-                    </el-tab-pane>
+                    </el-tab-pane>-->
                     <el-tab-pane label="系统状态">
                         <SysStatue></SysStatue>
                     </el-tab-pane>
-                    <el-tab-pane label="退出登录">
+                    <!--<el-tab-pane label="退出登录">
                         退出登录
-                    </el-tab-pane>
+                    </el-tab-pane>-->
                 </el-tabs>
             </div>
         </el-col>
@@ -30,7 +30,7 @@
 <script>
     import RealTimeData from './RealTimeData.vue';
     import SysConfig from './SysConfig.vue';
-    import SysLog from './SysLog.vue';
+    //import SysLog from './SysLog.vue';
     import SysStatue from './SysStatue.vue';
     import HistoryData from './HistoryData.vue'
     export default {
@@ -48,7 +48,7 @@
         components: {
             RealTimeData,
             SysConfig,
-            SysLog,
+            //  SysLog,
             SysStatue,
             HistoryData,
         },
@@ -70,10 +70,8 @@
     }
 
     .tabs {
-     /*   position: fixed;
+        /*   position: fixed;
         height: 100%;
         width: 100%;*/
     }
-
-  
 </style>

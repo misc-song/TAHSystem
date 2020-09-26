@@ -3,7 +3,8 @@
 
         <!-- 通过v-if 进行条件渲染 如果不使用条件判断则子组件在钩子函数中的无法获取数据  -->
         <!--<LeftContent v-if="Object.keys(result).length" v-bind:result="result" />-->
-        <Content @func="LoadData" class="content"></Content>
+        <Content class="content"></Content>
+        <!--<Content @func="LoadData" class="content"></Content>-->
 
     </div>
 </template>

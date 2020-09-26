@@ -29,7 +29,10 @@
                 this.axios
                     .get('http://localhost:5000/api/Configure/GetRunningProcess')
                     .then((response) => {
-                        console.log(response.data.serverData);
+                     //   console.log(response.data.serverData);
+                        if (response.data.serverData == null) {
+                            return;
+                        }
                         this.res = response.data.serverData
                         this.id = this.res.id;
                         this.comName = this.res.comName;

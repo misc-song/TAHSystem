@@ -74,13 +74,13 @@
                     connectNulls: true   //自动连接间断点数据
                 }
             }
-            //this.dataZoom = [
-            //    {
-            //        type: 'slider',
-            //        start: 0,
-            //        end: 20
-            //    }
-            //]
+            this.dataZoom = [
+                {
+                    type: 'slider',
+                    start: 0,
+                    end: 20
+                }
+            ]
             this.toolbox = {
                 feature: {
                     magicType: { type: ['line', 'bar'] },
@@ -168,7 +168,6 @@
                     { value: '21', label: '21' },
                     { value: '22', label: '22' },
                     { value: '23', label: '23' },
-                    { value: '24', label: '24' },
                 ],
                 hour1: "",
                 hour2: "",
@@ -187,7 +186,11 @@
             LoadData() {
                 console.log(this.date);
                 if (this.date == null) {
-                    alert("日期不可以为空");
+                    alert("日期不可以为空。");
+                    return;
+                }
+                if (this.hour1 > this.hour2) {
+                    alert("时间范围错误。");
                     return;
                 }
                 this.axios
